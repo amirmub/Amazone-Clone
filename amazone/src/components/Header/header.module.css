@@ -1,0 +1,128 @@
+.header__container{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #131921;
+    color: #ffffff;
+    padding: 7px 20px;
+    z-index: 10;
+}
+.header__container p{
+    font-size: 14px;
+    font-weight: 600;
+}
+.header__logo{
+    width: 100px;
+    margin-top: 10px;
+}
+.header__logo:hover,.header__signin:hover,
+.header__orders:hover, .location:hover,
+.header__right_content:hover{
+    outline: 1px solid white;
+    cursor: pointer;
+    outline-offset: 4px;
+}
+.header__left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.header__left .location{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+.header__left .location__icon{
+  margin-top: 15px;
+  font-size: 18px;
+}
+.header__center{
+    width: 100%;
+    position: relative;
+}
+.header__center input{
+  padding-left: 60px;
+  font-size: 15px;
+}
+.header__search{
+    width: 95%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+}
+.header__search:focus{
+    outline: 3px solid #FEBD69;
+}
+.header__center select{
+    position: absolute;
+    height: 100%;
+    width: 52px;
+    text-align: center;
+    color: #190000;
+    font-size: 13px;
+    font-weight:500;
+    background-color: #D4D4D4;
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.header__center button{
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    margin-left: -50px;
+    border: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #FEBD69;
+    font-size: 30px;
+    padding-top: 5px;
+}
+.header__right{
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding-right: 30px;
+}
+.header__right_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.header_flag{
+    width: 25px;
+    height: 15px;
+}
+small{
+    color: white;
+    font-weight: 300;
+    font-size: 12px;
+}
+.header__cart{
+    position: relative;
+    margin-top: 10px;
+}
+.header__cart p{
+    position: absolute;
+    left: 15px;
+    top: -12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FEBD69;
+}
+.header__cart span{
+    position: absolute;
+    top: 10px;
+    left: 35px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.header__signin{
+    width: 108px;
+}
