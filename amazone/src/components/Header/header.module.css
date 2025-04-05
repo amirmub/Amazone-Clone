@@ -34,7 +34,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 40px;
+    margin-right: 20px;
 }
 .header__left .location__icon{
   margin-top: 15px;
@@ -49,8 +49,8 @@
   font-size: 15px;
 }
 .header__search{
-    width: 95%;
-    padding: 12px;
+    width: 98%;
+    padding: 10px;
     border: none;
     border-radius: 5px;
 }
@@ -93,7 +93,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 1px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.header__right_content select{
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
 }
 .header_flag{
     width: 25px;

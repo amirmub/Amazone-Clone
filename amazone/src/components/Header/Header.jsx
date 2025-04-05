@@ -11,7 +11,7 @@ function Header() {
     <header>
      <div className={classes.header__container}>
         <div className={classes.header__left} >
-            <img src={logo} alt="logo" className={classes.header__logo} />
+            <a href=""><img src={logo} alt="logo" className={classes.header__logo} /></a>
             <div  className={classes.location}>
                 <div className={classes.location__icon}><span><MdOutlineLocationOn /></span></div>
                 <div>
@@ -33,7 +33,9 @@ function Header() {
         <div className={classes.header__right}>
              <div className={classes.header__right_content}>
                 <img className={classes.header_flag} src={flag} alt="" />
-                <p>EN</p>
+                <select name="" id="">
+                    <option value=""><p>EN</p></option>
+                </select>
              </div>
             <div className={classes.header__signin}>
                 <small>Hello,signin</small>
