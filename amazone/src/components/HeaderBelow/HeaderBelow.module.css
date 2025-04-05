@@ -1,7 +1,7 @@
 .header__below{
     margin-top: 64px;
     background-color: #232F3E;
-    padding: 7px;
+    padding: 4px;
 }
 .header__below ul{
     display: flex;
