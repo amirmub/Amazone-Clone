@@ -1,0 +1,21 @@
+.header__below{
+    margin-top: 64px;
+    background-color: #232F3E;
+    padding: 7px;
+}
+.header__below ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.header__below ul li{
+    margin-left: 18px;
+    color: rgb(255, 255, 255);
+    font-size: 14.5px;
+    font-weight: 500;
+}
+.header__below ul li:first-child{
+    font-size: 25px;
+    margin-top: 4px;
+    margin-right: -15px;
+}

@@ -1,5 +1,6 @@
 .header__container{
     position: fixed;
+    top: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -9,6 +10,7 @@
     padding: 7px 20px;
     z-index: 10;
 }
+
 .header__container p{
     font-size: 14px;
     font-weight: 600;

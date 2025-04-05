@@ -5,9 +5,11 @@ import { FiShoppingCart } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
 import logo from '../../assets/logo.png'
 import flag from '../../assets/american_flag.png'
+import HeaderBelow from '../HeaderBelow/HeaderBelow';
 
 function Header() {
   return (
+    <>
     <header>
      <div className={classes.header__container}>
         <div className={classes.header__left} >
@@ -52,6 +54,8 @@ function Header() {
         </div>
         </div>
     </header>
+    <HeaderBelow />
+   </>
   )
 }
 
