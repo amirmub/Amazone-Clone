@@ -25,3 +25,13 @@
     margin: 10px 0;
     border-radius: 3px;
 }
+
+@media (max-width : 768px) {
+    .catagoryCard{
+        width: 250px;
+        height: 100%;
+    }   
+    .catagoryCard__image img{
+        height: 200px;
+    }
+}

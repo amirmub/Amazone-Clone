@@ -6,3 +6,12 @@
     gap: 15px;
     margin: 0 30px;
 }
+@media (max-width : 768px) {
+    .category{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        top: 30%;
+        margin: 5px;
+        gap: 15px;
+    }
+}

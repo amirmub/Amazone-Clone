@@ -7,7 +7,7 @@ import classes from './Carousal.module.css'
 function Carousal() {
   return (
     <>
-    <div>
+    <div className={classes.caraousal}>
        <Carousel
         autoPlay={true}
         infiniteLoop={true}
