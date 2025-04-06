@@ -1,0 +1,8 @@
+.category{
+    position: absolute;
+    top: 60%;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 0 30px;
+}

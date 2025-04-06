@@ -3,8 +3,8 @@ import  classes from './header.module.css'
 import { MdOutlineLocationOn } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
-import logo from '../../assets/logo.png'
-import flag from '../../assets/american_flag.png'
+import logo from '../../assets/images/logo.png'
+import flag from '../../assets/images/american_flag.png'
 import HeaderBelow from '../HeaderBelow/HeaderBelow';
 
 function Header() {
@@ -36,7 +36,7 @@ function Header() {
              <div className={classes.header__right_content}>
                 <img className={classes.header_flag} src={flag} alt="" />
                 <select name="" id="">
-                    <option value=""><p>EN</p></option>
+                    <option value="">EN</option>
                 </select>
              </div>
             <div className={classes.header__signin}>
