@@ -2,9 +2,11 @@ import React from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import {img} from "../../assets/data"
+import classes from './Carousal.module.css'
 
 function Carousal() {
   return (
+    <>
     <div>
        <Carousel
         autoPlay={true}
@@ -19,6 +21,8 @@ function Carousal() {
         }
       </Carousel>
     </div>
+    <div className={classes.fade}></div>
+    </>
   )
 }
 
