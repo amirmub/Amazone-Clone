@@ -27,7 +27,7 @@
     display: none;
    }
    .header__below ul li:first-child{
-    display: block;
+    display: none;
    }
     .header__below ul li:first-child{
        margin-left: 10px;
