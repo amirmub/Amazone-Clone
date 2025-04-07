@@ -1,4 +1,6 @@
-.fade::before{
+.caraousal{
+    margin-bottom: 200px;
+}.fade::before{
     content: "";
     position: absolute;
     bottom: -28px;
