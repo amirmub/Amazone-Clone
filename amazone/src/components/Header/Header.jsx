@@ -6,6 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 import logo from '../../assets/images/logo.png'
 import flag from '../../assets/images/american_flag.png'
 import HeaderBelow from '../HeaderBelow/HeaderBelow';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -13,7 +14,7 @@ function Header() {
     <header>
      <div className={classes.header__container}>
         <div className={classes.header__left} >
-            <a href=""><img src={logo} alt="logo" className={classes.header__logo} /></a>
+            <Link to="/"><img src={logo} alt="logo" className={classes.header__logo} /></Link>
             <div  className={classes.location}>
                 <div className={classes.location__icon}><span><MdOutlineLocationOn /></span></div>
                 <div>
@@ -39,18 +40,18 @@ function Header() {
                     <option value="">EN</option>
                 </select>
              </div>
-            <div className={classes.header__signin}>
+            <Link to="/auth"  className={classes.header__signin}>
                 <small>Hello,signin</small>
                 <p>Account & Lists</p>
-            </div>
-            <div className={classes.header__orders}>
+            </Link>
+            <Link to="/order" className={classes.header__orders}>
                 <small>Returns </small>
                 <p>&Orders</p>
-            </div>
-            <div className={classes.header__cart}>
+            </Link>
+            <Link to="/cart" className={classes.header__cart}>
                 <p >0</p>
                 <h1><FiShoppingCart /></h1><span>Cart</span>
-            </div>
+            </Link>
         </div>
         </div>
     </header>

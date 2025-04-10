@@ -9,11 +9,12 @@
     color: #ffffff;
     padding: 7px 20px;
     z-index: 10;
+    text-decoration: none;
 }
-
 .header__container p{
     font-size: 14px;
     font-weight: 600;
+    color: #ffffff;
 }
 .header__logo{
     width: 100px;
@@ -116,6 +117,7 @@ small{
 .header__cart{
     position: relative;
     margin-top: 10px;
+    color: #ffffff;
 }
 .header__cart p{
     position: absolute;
@@ -131,6 +133,7 @@ small{
     left: 35px;
     font-size: 13px;
     font-weight: 600;
+    color: #ffffff;
 }
 .header__signin{
     width: 108px;

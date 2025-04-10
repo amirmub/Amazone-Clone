@@ -1,6 +1,6 @@
 .header__below{
     margin-top: 64px;
-    background-color: #232F3E;
+    background-color: hsl(213, 28%, 19%);
     padding: 4px;
 }
 .header__below ul{
@@ -13,6 +13,7 @@
     color: rgb(255, 255, 255);
     font-size: 14.5px;
     font-weight: 500;
+    cursor: pointer;
 }
 .header__below ul li:first-child{
     font-size: 25px;
