@@ -25,9 +25,13 @@ function ProductDetail() {
     <LayOut>
       
       <div className={classes.product_detail_container}>
-        {
-          loading ? <Loader /> : products.id && <ProductCard data={products} key={products.id} />
-        }
+         <div className={classes.product_detail}> 
+            {
+              loading ? <Loader /> : products.id &&
+              <ProductCard data={products} key={products.id}    flex = {true} />
+            
+            }
+         </div>
       </div>
     </LayOut>
   )

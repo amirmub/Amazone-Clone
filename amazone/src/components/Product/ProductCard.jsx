@@ -3,10 +3,10 @@ import classes from './ProductCard.module.css';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 
-function ProductCard({data}) {
+function ProductCard({data,flex}) {
   return (
    <div className={classes.product_container}>
-     <div className={classes.product}>
+     <div className={`${classes.product} ${flex ? classes.product_flex : ''}`}>  
       <div className={classes.product_img}>
         <Link to={`/products/${data.id}`}><img src={data.image} alt=""/></Link>
       </div>
