@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom'
 import classes from './CategoryCard.module.css'
 
 function CategoryCard({data}) {
+  console.log(data);
+  
   return (
     <div className={classes.catagoryCard}>
-      <a href="#">
+      <Link to={`/category/${data.name}`}>
         <div className={classes.catagoryCard__content}>
           <h2>{data.title}</h2>
         </div>
@@ -11,7 +14,7 @@ function CategoryCard({data}) {
           <img src={data.imgLink} alt="" />
         </div>
           <p>Shop now</p>
-      </a>
+      </Link>
     </div>
   )
 }

@@ -5,22 +5,22 @@ import img4 from "../../assets/images/women's clothe.jpg";
 
 export const CategoryData = [
   {
-    id: 1,
+    name: "electronics",
     title: "Electronics",
     imgLink: img1,
   },
   {
-    id: 2,
+    name: "men's clothing",
     title: "Men's Clothing",
     imgLink: img2,
   },
   {
-    id: 3,
-    title: "Jewelary",
+    name: "jewelery",
+    title: "Jewelery",
     imgLink: img3,
   },
   {
-    id: 4,
+    name: "women's clothing",
     title: "Women's Clothing",
     imgLink: img4,
   },
