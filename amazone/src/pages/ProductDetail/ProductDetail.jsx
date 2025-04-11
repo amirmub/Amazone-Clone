@@ -28,7 +28,7 @@ function ProductDetail() {
          <div className={classes.product_detail}> 
             {
               loading ? <Loader /> : products.id &&
-              <ProductCard data={products} key={products.id}    flex = {true} />
+              <ProductCard data={products} key={products.id}    flex = {true}  product_description = {true} />
             
             }
          </div>

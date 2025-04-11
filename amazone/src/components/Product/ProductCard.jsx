@@ -3,7 +3,7 @@ import classes from './ProductCard.module.css';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 
-function ProductCard({data,flex}) {
+function ProductCard({data,flex,product_description}) {
   return (
    <div className={classes.product_container}>
      <div className={`${classes.product} ${flex ? classes.product_flex : ''}`}>  
@@ -13,6 +13,11 @@ function ProductCard({data,flex}) {
 
       <div className={classes.product_info}>
         <h1 className={classes.product_title}>{data.title}</h1>
+        <div>
+          {
+            product_description && <p className={classes.product_description}>{data.description}</p>  
+          }
+        </div>
         <div className={classes.product_rating}>
           <p><Rating name="half-rating" defaultValue={data.rating.rate} precision={0.5} readOnly/></p>
           <h4>{data.rating.count}</h4>
