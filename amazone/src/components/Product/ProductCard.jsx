@@ -1,13 +1,14 @@
 import React from 'react';
 import classes from './ProductCard.module.css';
 import Rating from '@mui/material/Rating';
+import { Link } from 'react-router-dom';
 
 function ProductCard({data}) {
   return (
    <div className={classes.product_container}>
      <div className={classes.product}>
       <div className={classes.product_img}>
-        <a href=""><img src={data.image} alt=""/></a>
+        <Link to={`/products/${data.id}`}><img src={data.image} alt=""/></Link>
       </div>
 
       <div className={classes.product_info}>
