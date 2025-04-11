@@ -5,20 +5,29 @@ import { Product_URL } from '../../Api/EndPoint';
 import ProductCard from '../../components/Product/ProductCard';
 import axios from 'axios';
 import classes from './ProductDetail.module.css'
+import Loader from '../../components/Loader/Loader';
 
 function ProductDetail() {
   const [products, setProducts] = useState({});
+  const [loading,setLoading] = useState(false);
   const {productId} = useParams();
   
   useEffect(() => {
+     setLoading(true)
       axios.get(`${Product_URL}/products/${productId}`)
-      .then(res => { setProducts(res.data); console.log(res.data) })
+      .then(res => { 
+        setProducts(res.data); 
+        setLoading(false);
+       })
       .catch(err => {console.log(err);})
   }, []);
   return (
     <LayOut>
+      
       <div className={classes.product_detail_container}>
-        {products.id && <ProductCard data={products} key={products.id} />}
+        {
+          loading ? <Loader /> : products.id && <ProductCard data={products} key={products.id} />
+        }
       </div>
     </LayOut>
   )
