@@ -1,0 +1,44 @@
+.upperFooter_Container{
+    background-color: #232F3E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    padding: 10px ;
+    margin: 0 auto;
+}
+.upperFooter_logo img{
+    width: 100px;
+    margin-top: 20px;
+}
+.upperFooter_Buttons  button{
+    margin-left: 30px;
+    width: 120px;
+    padding: 7px 0px;
+    background-color: transparent;
+    border: 1px solid #CCCCCC;
+    color: #CCCCCC;
+    font-size: 12.5px;
+    position: relative;
+}
+
+.globe{
+    position: absolute;
+    top: 6px;
+    left: 15px;
+    width: 15px;
+    height: 15px;
+    color: #fff;
+}
+.currency{
+    position: absolute;
+    top: 6px;
+    left: 1px;
+    width: 15px;
+    height: 15px;
+    color: #fff;
+}
+.upperFooter_Buttons img{
+    width: 24px;
+    margin-right: 5px;
+}
