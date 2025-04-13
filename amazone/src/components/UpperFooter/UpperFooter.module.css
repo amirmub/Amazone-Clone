@@ -5,7 +5,7 @@
     align-items: center;
     gap: 150px;
     padding: 10px ;
-    margin: 0 auto;
+    margin: 40px auto;
 }
 .upperFooter_logo img{
     width: 100px;
@@ -41,4 +41,34 @@
 .upperFooter_Buttons img{
     width: 24px;
     margin-right: 5px;
+}
+
+@media (max-width : 768px) {
+    .upperFooter_Container{
+        flex-direction: column;
+        gap: 4px;
+    }
+    .upperFooter_Buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .upperFooter_logo img{
+        width: 80px;
+    }
+    .upperFooter_Buttons button{
+        width: 100px;
+        font-size: 10.5px;
+        margin-left: 0px;
+    }
+    .globe{
+        left: 10px;
+    }
+    .currency{
+        left: 0px;
+    }
+    .upperFooter_Buttons img{
+        width: 20px;
+    }
 }

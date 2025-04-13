@@ -14,7 +14,7 @@ function UpperFooter() {
 
       <div className={classes.upperFooter_Buttons}>
           <button><FaGlobe className={classes.globe}/>English</button>
-          <button><BsCurrencyDollar className={classes.currency}/>USD-U.S.Dollar</button>
+          <button><BsCurrencyDollar className={classes.currency}/> USD-U.S.Dollar</button>
           <button className={classes.footer_flag}><img src={flag}alt="flag" /> United State</button>
       </div>
     </div>
