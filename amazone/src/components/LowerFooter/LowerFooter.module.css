@@ -26,3 +26,21 @@
     margin-top: 10px;
     text-align: center; 
 }
+@media (max-width : 768px) {
+
+    .lowerFooter ul a{
+        font-size: 11.8px;
+        margin: 0px;        
+    }
+    .lowerFooter ul{
+        display: grid;
+        grid-template-columns: repeat(2,190px);
+        justify-content: center;
+        align-items: center;
+        margin-left: 50px;
+        margin-bottom: 20px;
+   }
+   .lowerFooter ul li{
+      margin-top: 10px;
+   }
+}
