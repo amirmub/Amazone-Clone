@@ -4,12 +4,13 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { FaGlobe } from "react-icons/fa";
 import flag from '../../assets/images/american_flag.png'
 import classes from './UpperFooter.module.css'
+import {Link} from 'react-router-dom'
 
 function UpperFooter() {
   return (
     <div className={classes.upperFooter_Container}>
       <div className={classes.upperFooter_logo}>
-          <a href="/"><img src={logo} /></a>
+          <Link to="/"><img src={logo} /></Link>
       </div>
 
       <div className={classes.upperFooter_Buttons}>

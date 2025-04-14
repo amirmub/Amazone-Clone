@@ -1,0 +1,25 @@
+.footer__container{
+    background-color: #131A22;
+    width: 100%;
+    padding-top: 10px;
+}
+.footer__content{
+    width: 1000px;
+    margin: 0 auto;
+}
+.footer__content .cols{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.footer__content a{
+    color: #c2c2c2;
+    text-decoration: none;
+}
+.footer__content a:hover{
+   text-decoration: underline;
+}
+.footer__content .col{
+    width: 115px;
+    font-size: 11.5px;
+    margin-top: 20px;
+}

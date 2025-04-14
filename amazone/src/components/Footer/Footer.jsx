@@ -1,27 +1,36 @@
 import React from 'react'
 import classes from './Footer.module.css'
+import { Link } from 'react-router-dom'
 
-function Footer({col1, col2, col3, col4}) {
+function Footer({col1, col2, col3, col4,col5,col6}) {
   return (
-    <div className={classes.footer__container}>
+    <footer>
+        <div className={classes.footer__container}>
         <div className={classes.footer__content}>
             <div className={classes.cols}>
-                <div>
-                     <a href="">{col1}</a>
+                <div className={`${classes.col} ${classes.firstCol}`}>
+                     <Link to="">{col1}</Link>
                 </div>
-                <div>
-                    <a href="">{col2}</a>
+                <div className={classes.col}>
+                    <Link to="">{col2}</Link>
                 </div>
-                <div>
-                    <a href="">{col3}</a>   
+                <div className={classes.col}>
+                    <Link to="">{col3}</Link>   
                 </div>
-                <div>
-                    <a href="">{col4}</a>
+                <div className={classes.col}>
+                    <Link to="">{col4}</Link>
+                </div>
+                <div className={classes.col}>
+                    <Link to="">{col5}</Link>
+                </div>
+                <div className={classes.col}>
+                    <Link to="">{col6}</Link>
                 </div>
             </div>
         </div>   
-      
+
     </div>
+    </footer>
   )
 }
 
