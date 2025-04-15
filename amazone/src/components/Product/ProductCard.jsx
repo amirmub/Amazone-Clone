@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './ProductCard.module.css';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
+import { DataContext } from '../DataProvider/DataProvider';
 
 function ProductCard({data,flex,product_description}) {
+     const [state,dispatch] = useContext(DataContext);
+     console.log(state);
+
+    const addToCart = () => {
+      dispatch({
+        type: 'ADD_TO_BASKET',
+        item: {
+          id: data.id,
+          title: data.title,
+          image: data.image,
+          price: data.price,
+          rating: data.rating.rate,
+        },
+      });
+    }
+
   return (
    <div className={classes.product_container}>
      <div className={`${classes.product} ${flex ? classes.product_flex : ''}`}>  
@@ -26,7 +43,7 @@ function ProductCard({data,flex,product_description}) {
           <p>$</p>
           <strong>{data.price}</strong>
         </div>
-        <button>add to cart</button>
+        <button onClick={addToCart}>add to cart</button>
       </div>
     </div>
    </div>
