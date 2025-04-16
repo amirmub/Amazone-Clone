@@ -12,9 +12,10 @@ function LayOut({children}) {
             {children}
             <UpperFooter />
             {
-            footerLists.map((singleList) =>{
+            footerLists.map((singleList,i) =>{
                 return (
                     <Footer 
+                        key={i}
                         col1={singleList.col1}
                         col2={singleList.col2}
                         col3={singleList.col3}
