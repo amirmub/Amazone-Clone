@@ -18,7 +18,7 @@ function Cart() {
             
               basket.map((item) => (
                <ProductCard 
-               data={item} key={item.id} flex = {true} product_description = {true} />
+               data={item} key={item.id} flex = {true} product_description = {true} cart_button = {false} />
               ))
             
          }

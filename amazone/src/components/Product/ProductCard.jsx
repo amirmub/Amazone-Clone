@@ -4,10 +4,10 @@ import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
 
-function ProductCard({data,flex,product_description}) {
+function ProductCard({data,flex,product_description,cart_button}) {
      const [state,dispatch] = useContext(DataContext);
      console.log(state);
-
+     
     const addToCart = () => {
       dispatch({
         type: 'ADD_TO_BASKET',
@@ -16,7 +16,8 @@ function ProductCard({data,flex,product_description}) {
           title: data.title,
           image: data.image,
           price: data.price,
-          rating: data.rating.rate,
+          rating: data.rating,
+          rate: data.rating.rate,
           description : data.description,
         },
       });
@@ -44,7 +45,9 @@ function ProductCard({data,flex,product_description}) {
           <p>$</p>
           <strong>{data.price}</strong>
         </div>
-        <button onClick={addToCart}>add to cart</button>
+        {
+          cart_button && <button onClick={addToCart}>add to cart</button>
+        }
       </div>
     </div>
    </div>

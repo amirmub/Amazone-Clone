@@ -36,7 +36,7 @@ function Results() {
           <div className={classes.results}>
           {
             loading?(<Loader />) : products?.map((product) => (
-            <ProductCard  data={product}  key={product.id}/>
+            <ProductCard  data={product}  key={product.id} cart_button={true}/>
           )
           )
           }
