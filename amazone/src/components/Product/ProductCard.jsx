@@ -17,6 +17,7 @@ function ProductCard({data,flex,product_description}) {
           image: data.image,
           price: data.price,
           rating: data.rating.rate,
+          description : data.description,
         },
       });
     }
