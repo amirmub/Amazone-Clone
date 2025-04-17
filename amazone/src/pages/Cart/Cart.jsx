@@ -19,7 +19,7 @@ function Cart() {
 
         <div className={classes.cart_item}>
             {
-              basket?.length === 0 ? <h2> Oops, Your Basket is empty</h2> : 
+              basket?.length === 0 ? <h2> 🧺 Oops! Your basket is  empty.</h2> : 
                 
                   basket.map((item) => (
                   <ProductCard 
