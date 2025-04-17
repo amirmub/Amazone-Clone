@@ -4,7 +4,7 @@ import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
 
-function ProductCard({data,flex,product_description,cart_button}) {
+function ProductCard({data,flex,product_description,cart_button,cart_style}) {
      const [state,dispatch] = useContext(DataContext);
      console.log(state);
      
@@ -25,7 +25,7 @@ function ProductCard({data,flex,product_description,cart_button}) {
 
   return (
    <div className={classes.product_container}>
-     <div className={`${classes.product} ${flex ? classes.product_flex : ''}`}>  
+     <div className={`${classes.product} ${flex ? classes.product_flex : ''} ${cart_style ? classes.cart_style : ''}`}>  
       <div className={classes.product_img}>
         <Link to={`/products/${data.id}`}><img src={data.image} alt=""/></Link>
       </div>

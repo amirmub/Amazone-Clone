@@ -59,6 +59,18 @@
     margin: 5px 0;
 }
 
+.cart_style{
+    width: 760px;
+    /* padding: 25px 0 0 20px; */
+}
+.cart_style img{
+    width: 150px;
+    height: 160px;
+}
+.cart_style .product_description{
+    width: 600px;
+}
+
 @media (max-width : 768px) {
     .product_flex{
         display: flex;
