@@ -34,7 +34,7 @@ function Cart() {
             basket?.length > 0 && 
             <div>
               <h3>Subtotal ({basket.length} items): &nbsp;
-              <strong> ${basket.reduce((acc, item) => acc + item.price, 0).toFixed(2)}</strong></h3>
+              <strong> ${basket.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}</strong></h3>
               <span>
                 <input type="checkbox" />
                 <span> This Order Contains a Gift</span>
