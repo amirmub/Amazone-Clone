@@ -7,6 +7,20 @@ import classes from './Cart.module.css'
 
 function Cart() {
   const [{basket , user},dispatch] = useContext(DataContext);
+
+  const increament = (item) => {
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: item
+    })
+  }
+  const decreament = (id) => {
+    dispatch({
+      type: 'REMOVE_FROM_BASKET',
+      id: id
+    })
+  }
+
   return (
     <LayOut>
       <section  className={classes.cart_container}>
@@ -21,11 +35,25 @@ function Cart() {
             {
               basket?.length === 0 ? <h2> 🧺 Oops! Your basket is  empty.</h2> : 
                 
-                  basket.map((item) => (
+                  basket.map((item) => (   
+                <section>
                   <ProductCard 
-                  data={item} key={item.id} flex = {true} product_description = {true} cart_button = {false} cart_style={true} />
-                  ))               
-            }
+                    data={item} key={item.id}
+                    flex = {true} 
+                    product_description = {true} 
+                    cart_button = {false} 
+                    cart_style={true} 
+                    />
+
+                    <div className={classes.cart_item_details}>
+                      <button onClick={() => increament(item)}>ADD</button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => decreament(item.id)}>Delete</button>
+                    </div>
+                    
+                </section>
+              ))               
+           }
         </div>
         </div>
 
