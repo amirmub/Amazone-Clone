@@ -53,7 +53,7 @@ function Header() {
             </Link>
             <Link to="/cart" className={classes.header__cart}>
                 <p >{basket.length}</p>
-                <h1><FiShoppingCart /></h1><span>Cart</span>
+                 <h1><FiShoppingCart /></h1>  {/*<span>Cart</span> */}
             </Link>
         </div>
         </div>
