@@ -44,6 +44,27 @@
     font-size: 13px;
     font-weight:500;
 }
+.cart_item_section{
+    display: flex;
+}
+.cart_item_details{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+}
+.cart_item_details button{
+    height: max-content;
+    font-size: 15px;
+    border: none;
+    padding: 0 5px ;
+    transition: all .3s;
+}
+.cart_item_details button:hover{
+    background-color: #FEBD69;
+    cursor: pointer;
+}
 @media (max-width : 768px) {
     .cart_container{
         display: flex;

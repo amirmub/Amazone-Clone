@@ -4,6 +4,8 @@ import { DataContext } from '../../components/DataProvider/DataProvider';
 import ProductCard from '../../components/Product/ProductCard';
 import { Link } from 'react-router-dom';
 import classes from './Cart.module.css'
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
 
 function Cart() {
   const [{basket , user},dispatch] = useContext(DataContext);
@@ -36,7 +38,7 @@ function Cart() {
               basket?.length === 0 ? <h2> 🧺 Oops! Your basket is  empty.</h2> : 
                 
                   basket.map((item) => (   
-                <section>
+                <section className={classes.cart_item_section}>
                   <ProductCard 
                     data={item} key={item.id}
                     flex = {true} 
@@ -46,9 +48,9 @@ function Cart() {
                     />
 
                     <div className={classes.cart_item_details}>
-                      <button onClick={() => increament(item)}>ADD</button>
+                      <button onClick={() => increament(item)}><FaChevronUp size={18}/></button>
                       <span>{item.quantity}</span>
-                      <button onClick={() => decreament(item.id)}>Delete</button>
+                      <button onClick={() => decreament(item.id)}><FaChevronDown  size={18}/></button>
                     </div>
                     
                 </section>
