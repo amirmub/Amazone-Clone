@@ -21,11 +21,22 @@ export const reducer = (state, action) => {
                 };
             }
             case ActionTypes.REMOVE_FROM_BASKET:
-                   return {
-                   ...state,
-                   basket: state.basket.filter(item => item.id !== action.id)
-                   };
-            
+                const index = state.basket.findIndex((basketItem) => basketItem.id === action.id);
+                let newBasket = [...state.basket];
+
+                if (index >= 0) {
+                   if(newBasket[index].quantity > 1){
+                        newBasket[index] = {...newBasket[index],quantity:newBasket[index].quantity-1}
+                   }
+                   else{
+                    newBasket.splice(index,1)
+                   }
+                }
+                return {
+                    ...state,
+                    basket: newBasket
+                };
+                   
         default:
             return state;
     }

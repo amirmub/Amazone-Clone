@@ -50,7 +50,7 @@ function Cart() {
                     <div className={classes.cart_item_details}>
                       <button onClick={() => increament(item)}><FaChevronUp size={18}/></button>
                       <span>{item.quantity}</span>
-                      <button onClick={() => decreament(item.id)}><FaChevronDown  size={18}/></button>
+                      <button onClick={() => decreament(item.id)}><FaChevronDown  size={20}/></button>
                     </div>
                     
                 </section>
