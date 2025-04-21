@@ -38,7 +38,7 @@ function ProductCard({data,flex,product_description,cart_button,cart_style}) {
           }
         </div>
         <div className={classes.product_rating}>
-          <p><Rating name="half-rating" defaultValue={data.rating.rate} precision={0.5} readOnly/></p>
+          <p><Rating name="half-rating" defaultValue={data.rating.rate} precision={0.5} /></p>
           <h4>{data.rating.count}</h4>
         </div>
         <div className={classes.product_price}>
