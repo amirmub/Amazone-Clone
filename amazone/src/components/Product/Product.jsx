@@ -23,7 +23,7 @@ function Product() {
     <div className={classes.products}>
       {
         loading ? <Loader /> :  product.map((singleProduct) => (
-          <ProductCard data={singleProduct} key={singleProduct.id} cart_button={true}/>
+          <ProductCard data={singleProduct} key={singleProduct.id} cart_button_style={false} cart_button={true}/>
          )
          )
       }

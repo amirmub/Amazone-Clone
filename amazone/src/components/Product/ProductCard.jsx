@@ -4,7 +4,7 @@ import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
 
-function ProductCard({data,flex,product_description,cart_button,cart_style}) {
+function ProductCard({data,flex,product_description,cart_button,cart_style,cart_button_style}) {
      const [state,dispatch] = useContext(DataContext);
      const [rating, setRating] = useState(data.rating.rate);
      const [count, setCount] = useState(data.rating.count);
@@ -56,7 +56,7 @@ function ProductCard({data,flex,product_description,cart_button,cart_style}) {
           <strong>{data.price}</strong>
         </div>
         {
-          cart_button && <button onClick={addToCart}>add to cart</button>
+          cart_button && <button className={`${classes.btn} ${cart_button_style ? classes.cart_btn_style : ''}`} onClick={addToCart}>add to cart</button>
         }
       </div>
     </div>
