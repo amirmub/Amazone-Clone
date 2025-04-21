@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext , useState } from 'react';
 import classes from './ProductCard.module.css';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,9 @@ import { DataContext } from '../DataProvider/DataProvider';
 
 function ProductCard({data,flex,product_description,cart_button,cart_style}) {
      const [state,dispatch] = useContext(DataContext);
+     const [rating, setRating] = useState(data.rating.rate);
+     const [count, setCount] = useState(data.rating.count);
+     const [hasRated, setHasRated] = useState(false);
      console.log(state);
      
     const addToCart = () => {
@@ -23,6 +26,13 @@ function ProductCard({data,flex,product_description,cart_button,cart_style}) {
       });
     }
 
+    const handleRatingChange = (event, newValue) => {
+      if (!hasRated && newValue !== null) {
+        setRating(newValue);
+        setCount(prev => prev + 1);
+        setHasRated(true); // Prevent user from rating again (optional)
+      }
+    };
   return (
    <div className={classes.product_container}>
      <div className={`${classes.product} ${flex ? classes.product_flex : ''} ${cart_style ? classes.cart_style : ''}`}>  
@@ -38,8 +48,8 @@ function ProductCard({data,flex,product_description,cart_button,cart_style}) {
           }
         </div>
         <div className={classes.product_rating}>
-          <p><Rating name="half-rating" defaultValue={data.rating.rate} precision={0.5} /></p>
-          <h4>{data.rating.count}</h4>
+          <p><Rating name="half-rating" defaultValue={data.rating.rate} value={rating} precision={0.5} onChange={handleRatingChange}/></p>
+          <h4>{count}</h4>
         </div>
         <div className={classes.product_price}>
           <p>$</p>
