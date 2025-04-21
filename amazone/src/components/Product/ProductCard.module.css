@@ -61,6 +61,8 @@
 
 .cart_style{
     width: 760px;
+    margin-top: 30px;
+    border-bottom: 1px solid #ccc;
 }
 .cart_style img{
     width: 150px;
