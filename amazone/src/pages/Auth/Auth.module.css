@@ -48,3 +48,18 @@
     cursor: pointer;
     opacity: .7;
 }
+@media (max-width : 768px) {
+    .auth_content{
+        width: 320px;
+        padding: 30px 25px;
+
+    }
+    .auth_section{
+        background-color: white;
+        height: 110vh;
+    }
+    .auth_section img {
+        margin-left: 80px;
+    }
+
+}
