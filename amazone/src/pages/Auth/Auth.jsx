@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import logo2 from "../../assets/images/logo2.png"
 import classes from "./Auth.module.css"
 import {auth} from "../../Utility/firebase"
@@ -16,6 +16,7 @@ function Auth() {
   const [loading,setLoading] = useState({ signIn : false, signOut : false})
 
   const [{user},dispatch] = useContext(DataContext)
+  const navigate = useNavigate();
    console.log(user);
    
 
@@ -35,6 +36,7 @@ function Auth() {
         setSuccess(true);
         setError("");
         setLoading({...loading,signIn : false})
+        navigate("/")
       })
       .catch((err) =>{
         console.log(err);
@@ -54,6 +56,7 @@ function Auth() {
         setLoading({...loading,signOut : false})
         setSuccess(true);
         setError("");
+        navigate("/")
       })
       .catch((err) =>{
         console.log(err);
@@ -86,7 +89,7 @@ function Auth() {
                   By signing in you agree to the AMAZONE FACE CLONE Contribution of use and Sale
                   . Please See Our Privacy Notice, our Cookies Notice and Our Interest Based Ad Notice.
                 </p>
-              <button  type='submit' onClick={authHandler} name='signUp'>
+              <button  type='submit' className={classes.last_btn} onClick={authHandler} name='signUp'>
                  {
                     loading.signOut ? <ClipLoader  size={18}/> :  "Create Your Amazone Account"
                  }

@@ -38,11 +38,11 @@
    padding: 9px;
    background-color: #FEBD69;
    border: none;
-   font-size: 15px;
+   font-size: 14.5px;
    font-weight: 500;
    transition: all .2s ease-in-out;
 }
-.auth_content button:last-child{
+.auth_content .last_btn{
     background-color: #E3E6E6;
     margin-bottom: 0px;
 }
