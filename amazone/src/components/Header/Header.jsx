@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
 
 function Header() {
-    const [{basket},dispatch] = useContext(DataContext);
+    const [{user,basket},dispatch] = useContext(DataContext);
      const totalItems = basket?.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <>
@@ -43,9 +43,21 @@ function Header() {
                     <option value="">EN</option>
                 </select>
              </div>
-            <Link to="/auth"  className={classes.header__signin}>
-                <small>Hello,signin</small>
-                <p>Account & Lists</p>
+            <Link to={!user && "/auth"}  className={classes.header__signin}>
+              <div>
+                   {
+                    user ? 
+                     <>
+                      <small>Hello, {user?.email?.split("@")[0]}</small>
+                      <p> Sign Out</p>
+                    </>
+                     : 
+                    <>
+                      <small>Hello,signin</small>
+                      <p>Account & Lists</p>
+                    </>
+                   }
+              </div>
             </Link>
             <Link to="/order" className={classes.header__orders}>
                 <small>Returns </small>

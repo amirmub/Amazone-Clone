@@ -17,7 +17,7 @@ function Auth() {
 
   const [{user},dispatch] = useContext(DataContext)
   const navigate = useNavigate();
-   console.log(user);
+  //  console.log(user);
    
 
   // console.log(email,password);
@@ -28,11 +28,11 @@ function Auth() {
       setLoading({...loading,signIn : true})
       signInWithEmailAndPassword(auth,email,password)
       .then((userInfo) =>{
-        // console.log(userInfo);
         dispatch({
           type : ActionTypes.SET_USER,
           user : userInfo.user
         })
+        console.log(userInfo);
         setSuccess(true);
         setError("");
         setLoading({...loading,signIn : false})
