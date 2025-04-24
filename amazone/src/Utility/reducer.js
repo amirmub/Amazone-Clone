@@ -1,7 +1,8 @@
 import { ActionTypes } from "./action.type"
 
 export const initialState = {
-    basket: []
+    basket: [],
+    user : null
 };
 
 export const reducer = (state, action) => {
@@ -14,7 +15,8 @@ export const reducer = (state, action) => {
                     ...state,
                     basket: state.basket.map(item => item.id === action.item.id ? { ...item, quantity: item.quantity + 1 } : item)
                 };
-            } else {
+            } 
+            else {
                 return {
                     ...state,
                     basket: [...state.basket, { ...action.item, quantity: 1 }]
@@ -28,14 +30,21 @@ export const reducer = (state, action) => {
                    if(newBasket[index].quantity > 1){
                         newBasket[index] = {...newBasket[index],quantity:newBasket[index].quantity-1}
                    }
-                   else{
+                else{
                     newBasket.splice(index,1)
                    }
                 }
+
                 return {
                     ...state,
                     basket: newBasket
                 };
+                
+            case ActionTypes.SET_USER:
+                return{
+                    ...state,
+                    user : action.user
+                }
                    
         default:
             return state;
