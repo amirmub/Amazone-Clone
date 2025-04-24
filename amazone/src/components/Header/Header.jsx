@@ -8,6 +8,7 @@ import flag from '../../assets/images/american_flag.png'
 import HeaderBelow from '../HeaderBelow/HeaderBelow';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
+import { auth } from '../../Utility/firebase';
 
 function Header() {
     const [{user,basket},dispatch] = useContext(DataContext);
@@ -49,7 +50,7 @@ function Header() {
                     user ? 
                      <>
                       <small>Hello, {user?.email?.split("@")[0]}</small>
-                      <p> Sign Out</p>
+                      <p onClick={()=>{auth.signOut()}}> Sign Out</p>
                     </>
                      : 
                     <>
