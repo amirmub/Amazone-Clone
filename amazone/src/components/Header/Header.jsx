@@ -49,7 +49,7 @@ function Header() {
                    {
                     user ? 
                      <>
-                      <small>Hello, {user?.email?.split("@")[0]}</small>
+                      <small style={{fontSize : "11px",fontWeight :"500"}}>Hello, {user?.email?.split("@")[0]}</small>
                       <p onClick={()=>{auth.signOut()}}> Sign Out</p>
                     </>
                      : 

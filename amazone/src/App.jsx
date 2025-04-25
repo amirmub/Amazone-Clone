@@ -4,7 +4,6 @@ import Routing from './Router'
 import { DataContext } from './components/DataProvider/DataProvider'
 import { ActionTypes } from './Utility/action.type'
 import { auth } from './Utility/firebase'
-import { BsType } from 'react-icons/bs'
 
 function App() {
   const [{user},dispatch] = useContext(DataContext);
