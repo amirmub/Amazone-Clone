@@ -5,4 +5,6 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
-const stripe = require("stripe") (process.env.STRIPE_SECRET_KEY)
+dotenv.config();//uses for READ inside .env file
+const stripe = require("stripe") (process.env.STRIPE_SECRET_KEY);
+
