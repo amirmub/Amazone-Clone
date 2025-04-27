@@ -10,7 +10,7 @@
 }
 .payment_address{
     display: flex;
-    gap: 250px;
+    gap: 280px;
     padding: 50px 60px;
 }
 .payment_address p{
@@ -20,10 +20,39 @@
 }
 .payment_item{
     display: flex;
-    gap: 120px;
+    gap: 150px;
     padding: 30px 50px;
 }
 .payment_item img {
-    width: 100px;
+    width: 110px;
     height: auto;
+}
+
+.payment_card_container {
+    display: flex;
+    gap:200px ;
+    padding: 50px;
+}
+.payment_card{
+    max-width: 300px;
+    width: 100%;
+}
+.payment_card p{
+    margin: 10px 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+.payment_card button{
+    width: 300px;
+    padding: 7px;
+    font-size: 16px;
+    background-color: #FEBD69;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .3s;
+}
+.payment_card button:hover{
+    opacity: .8;
 }
