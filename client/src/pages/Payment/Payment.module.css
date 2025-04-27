@@ -1,0 +1,29 @@
+.payment_container{
+    background-color: #fff;
+}
+.payment_header{
+    background-color: #E3E6E6;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.payment_address{
+    display: flex;
+    gap: 250px;
+    padding: 50px 60px;
+}
+.payment_address p{
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.payment_item{
+    display: flex;
+    gap: 120px;
+    padding: 30px 50px;
+}
+.payment_item img {
+    width: 100px;
+    height: auto;
+}
