@@ -56,3 +56,22 @@
 .payment_card button:hover{
     opacity: .8;
 }
+@media (max-width : 768px) {
+    .payment_address{
+        display: block;
+        padding: 20px;
+    }
+    .payment_item{
+      display: block;
+      padding: 20px;
+    }
+    .payment_card_container {
+        display: block;
+    }
+    .payment_address h3{
+        margin-bottom: 20px;
+    }
+    .payment_card_container h3{
+        margin-bottom: 30px;
+    }
+}
