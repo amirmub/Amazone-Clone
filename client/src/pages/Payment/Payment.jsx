@@ -4,45 +4,63 @@ import { DataContext } from '../../components/DataProvider/DataProvider'
 import ProductCard from '../../components/Product/ProductCard'
 import classes from "./payment.module.css"
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { axiosInstance } from '../../Api/axios'
+import {ClipLoader} from "react-spinners"
+
 
 
 function Payment() {
   const [{basket,user},dispatch] = useContext(DataContext);
   const totalItems = basket?.reduce((acc, item) => acc + item.quantity, 0);
+  const total = basket.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)
+  const [processing,setProcessing] = useState(false);
+  
+  
   const [cardError,setCarError] = useState("");
 
   const stripe = useStripe();
   const elements = useElements();
 
    const handleChange = (e)=>{
-    setCarError(e.error.message)
+     setCarError(e.error.message)
+    }
+    
+    const handlePayment = async (e)=>{
+      e.preventDefault();
+      try {
+        // 1. backend || function ---> contact to client secret
+        const response = await axiosInstance({
+          method : "POST",
+          url : `/payment/create?total=${total}`
+        })
+        setProcessing(true)
+
+       console.log(response.data);
+       const clientSecret = response.data?.clientSecret;
+       // 2. client(react) side confirmation
+      const confirmation = await stripe.confirmCardPayment(
+          clientSecret, {
+          payment_method: {
+            card: elements.getElement(CardElement),
+            billing_details: {
+            name: user?. email.split("@")[0].split(/[\d.]/)[0]
+          },
+        },
+      })
+      setProcessing(false)
+      console.log(confirmation);
+      
+
+     } catch (error) {
+      setProcessing(false)
+
+     }
+
+
+
+
+
    }
-
-  // const [loading, setLoading] = useState(false);
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (!stripe || !elements) return;
-
-  //   setLoading(true);
-
-  //   const { clientSecret } = await res.json();
-
-  //   const result = await stripe.confirmCardPayment(clientSecret, {
-  //     payment_method: {
-  //       card: elements.getElement(CardElement),
-  //     },
-  //   });
-
-  //   if (result.error) {
-  //     console.error(result.error.message);
-  //   } else {
-  //     if (result.paymentIntent.status === 'succeeded') {
-  //       alert('Payment successful!');
-  //     }
-  //   }
-
-  //   setLoading(false);
-  // };
   return (
     <LayOut>
       <section className={classes.payment_container}>
@@ -82,14 +100,16 @@ function Payment() {
         <div className={classes.payment_card_container}>
           <h3>Payment Method</h3>
           <div className={classes.payment_card}>
-           <form>
+           <form onSubmit={handlePayment}>
             {
               cardError && <small style={{color : "red",marginLeft : "10px"} }>{cardError}</small>
             }
               <CardElement onChange={handleChange} />
-              <p>Total Order | ${basket.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}</p>
-            <button onClick={(e)=>{e.preventDefault()}} type="submit">
-             Pay Now
+              <p>Total Order | ${total}</p>
+            <button type="submit">
+              {
+                processing ?<small>Processing...</small> : "Pay Now"
+              }
             </button>
            </form>
           </div>

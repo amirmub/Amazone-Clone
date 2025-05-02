@@ -14,16 +14,16 @@ app.use(cors({origin : true})) //uses for accept from any request
 app.use(express.json())
 
 app.get("/",(req,res) =>{
-    res.status(200).json({message : "successfully register"})
+    res.status(200).json({message : "successfully register to function"})
 })
 
 
 app.post("/payment/create",async(req,res) =>{
-    const total = req.query.total
+    const total = parseInt(req.query.total)
 
       if (total > 0) {
         const paymentIntent = await stripe.paymentIntents.create({
-            amount : total,
+            amount : total * 100,
             currency : "USD"
          })
          res.status(201).json({
@@ -33,7 +33,7 @@ app.post("/payment/create",async(req,res) =>{
       }
         else{
            res.status(403).json({
-            message : "total must be greatethan 0"
+            message : "total must be greater than 0"
            })
 
         }
