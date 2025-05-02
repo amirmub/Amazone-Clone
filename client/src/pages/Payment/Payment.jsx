@@ -27,15 +27,15 @@ function Payment() {
     
     const handlePayment = async (e)=>{
       e.preventDefault();
+      setProcessing(true)
       try {
         // 1. backend || function ---> contact to client secret
         const response = await axiosInstance({
           method : "POST",
           url : `/payment/create?total=${total}`
         })
-        setProcessing(true)
-
-       console.log(response.data);
+        
+        console.log(response.data);
        const clientSecret = response.data?.clientSecret;
        // 2. client(react) side confirmation
       const confirmation = await stripe.confirmCardPayment(
