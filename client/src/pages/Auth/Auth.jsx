@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link,useNavigate,useLocation } from 'react-router-dom'
 import logo2 from "../../assets/images/logo2.png"
 import classes from "./Auth.module.css"
 import {auth} from "../../Utility/firebase"
@@ -18,8 +18,10 @@ function Auth() {
   const [{user},dispatch] = useContext(DataContext)
   const navigate = useNavigate();
   //  console.log(user);
-   
-
+  const locationData = useLocation()
+  console.log(locationData);
+  
+  
   // console.log(email,password);
   const authHandler = async (e)=>{
     e.preventDefault()
@@ -36,7 +38,7 @@ function Auth() {
         setSuccess(true);
         setError("");
         setLoading({...loading,signIn : false})
-        navigate("/")
+        navigate(locationData?.state.redirect || "/")
       })
       .catch((err) =>{
         console.log(err);
@@ -56,7 +58,7 @@ function Auth() {
         setLoading({...loading,signOut : false})
         setSuccess(true);
         setError("");
-        navigate("/")
+        navigate(locationData?.state.redirect || "/")
       })
       .catch((err) =>{
         console.log(err);
@@ -74,6 +76,16 @@ function Auth() {
 
           <div className={classes.auth_content}>
               <h1>Sign-in</h1>
+              {
+                <p>
+                  {
+                  locationData?.state?.msg && 
+                  <small style={{color: "red",display :"flex", justifyContent:"center",marginBottom : "10px",fontSize : "14px"}}>
+                    {locationData?.state?.msg} 
+                  </small>
+                  }
+                </p>
+              }
               <label htmlFor="email">Email</label><br />
               <input value={email} onChange={(e) => setEmail((e.target.value))} type="email" /><br /><br />
 
@@ -82,7 +94,7 @@ function Auth() {
 
               <button type='submit' onClick={authHandler} name='signIn'>
                  {
-                    loading.signIn ? <ClipLoader  size={18}/> :  "SignIn"
+                    loading.signIn ? <ClipLoader  size={16}/> :  "SignIn"
                  }
               </button> 
                 <p>
@@ -91,7 +103,7 @@ function Auth() {
                 </p>
               <button  type='submit' className={classes.last_btn} onClick={authHandler} name='signUp'>
                  {
-                    loading.signOut ? <ClipLoader  size={18}/> :  "Create Your Amazone Account"
+                    loading.signOut ? <ClipLoader  size={16}/> :  "Create Your Amazone Account"
                  }
               </button>
               {

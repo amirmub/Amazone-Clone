@@ -24,7 +24,7 @@ function Routing() {
          <Route path="/auth" element={<Auth />} />
          <Route path="/order" element={<Order />} />
          <Route path="/payments" element={
-           <ProtectedRoute msg={"you must login to pay"} redirect={"/payments"}>
+           <ProtectedRoute msg={"You must login to pay"} redirect={"/payments"}>
              <Elements stripe={stripePromise}>
               <Payment />
               </Elements>
