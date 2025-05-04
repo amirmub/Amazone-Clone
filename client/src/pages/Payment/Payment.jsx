@@ -5,8 +5,9 @@ import ProductCard from '../../components/Product/ProductCard'
 import classes from "./payment.module.css"
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { axiosInstance } from '../../Api/axios'
-import {ClipLoader} from "react-spinners"
-
+import { db } from '../../Utility/firebase'
+import { collection, doc, setDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom'
 
 
 function Payment() {
@@ -14,12 +15,13 @@ function Payment() {
   const totalItems = basket?.reduce((acc, item) => acc + item.quantity, 0);
   const total = basket.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)
   const [processing,setProcessing] = useState(false);
-  
+  const [error,setError] = useState("");
   
   const [cardError,setCarError] = useState("");
 
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
    const handleChange = (e)=>{
      setCarError(e.error.message)
@@ -38,27 +40,32 @@ function Payment() {
         console.log(response.data);
        const clientSecret = response.data?.clientSecret;
        // 2. client(react) side confirmation
-      const confirmation = await stripe.confirmCardPayment(
-          clientSecret, {
-          payment_method: {
-            card: elements.getElement(CardElement),
-            billing_details: {
-            name: user?. email.split("@")[0].split(/[\d.]/)[0]
-          },
-        },
-      })
-      setProcessing(false)
-      console.log(confirmation);
-      
+       const {paymentIntent} = await stripe.confirmCardPayment(  
+         clientSecret, {
+           payment_method: {
+             card: elements.getElement(CardElement),
+             billing_details: {
+               name: user?. email.split("@")[0].split(/[\d.]/)[0]
+              },
+            },
+          })
+          setProcessing(false)
+          console.log(paymentIntent);
+          
+       // 3. after the confirmation ---> order page -->store on firebase database --> finally clear basket
+          const orderRef = doc(collection(db, "users", user.uid, "orders"), paymentIntent.id);
+          await setDoc(orderRef, {
+            basket: basket,
+            amount: (paymentIntent.amount / 100),
+            created: paymentIntent.created,
+          });
+        
+          navigate("/order",{state : {msg : "you have placed new order"}})
 
      } catch (error) {
-      setProcessing(false)
-
+       setError(error);
+       setProcessing(false)
      }
-
-
-
-
 
    }
   return (
@@ -106,6 +113,11 @@ function Payment() {
             }
               <CardElement onChange={handleChange} />
               <p>Total Order | ${total}</p>
+              <small style={{color : "red",display : "flex", justifyContent : "center",fontSize : "14px"}}>
+                {
+                  error && error.message                  
+                }
+              </small>
             <button type="submit">
               {
                 processing ?<small>Processing...</small> : "Pay Now"
