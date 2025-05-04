@@ -22,7 +22,11 @@ function Routing() {
        <Routes >
          <Route path="/" element={<Landing />} />
          <Route path="/auth" element={<Auth />} />
-         <Route path="/order" element={<Order />} />
+         <Route path="/order" element={
+            <ProtectedRoute msg={"You must login to see your Order"} redirect={"/payments"}>
+              <Order />
+            </ProtectedRoute>
+          } />
          <Route path="/payments" element={
            <ProtectedRoute msg={"You must login to pay"} redirect={"/payments"}>
              <Elements stripe={stripePromise}>
