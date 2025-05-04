@@ -45,7 +45,7 @@ function Payment() {
            payment_method: {
              card: elements.getElement(CardElement),
              billing_details: {
-               name: user?. email.split("@")[0].split(/[\d.]/)[0]
+               name: user?. email.split("@")[0]
               },
             },
           })
