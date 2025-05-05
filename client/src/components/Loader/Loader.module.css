@@ -1,0 +1,14 @@
+.fadeLoader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 1170px;
+    margin:  0 auto;
+}
+@media (max-width : 768px) {
+    .fadeLoader{
+         width: 320px;
+         height: 20vh;
+    }
+}
