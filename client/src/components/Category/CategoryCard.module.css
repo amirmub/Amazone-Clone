@@ -28,10 +28,10 @@
 
 @media (max-width : 768px) {
     .catagoryCard{
-        width: 250px;
+        width: 325px;
         height: 100%;
     }   
     .catagoryCard__image img{
-        height: 200px;
+        height: 220px;
     }
 }

@@ -2,11 +2,14 @@
     background-color: #fff;
     max-width: 960px;    
     margin: 20px auto;
-    padding: 10px 70px;
+    
+}
+.order_items{
+    padding: 10px 0px 10px 120px;
 }
 .order_container h2{
     text-align: center;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 .order_container .id{
     padding: 20px;
@@ -22,4 +25,9 @@
 .empty_order{
     text-align: center;
     padding-bottom: 50px;
+}
+@media (max-width : 768px) {
+    .order_items{
+        padding: 10px 0px 10px 40px;
+    }
 }

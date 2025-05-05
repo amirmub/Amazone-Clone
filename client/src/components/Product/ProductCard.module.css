@@ -80,16 +80,20 @@
 }
 
 @media (max-width : 768px) {
+    .product{
+        width: 320px;
+    }
     .product_flex{
         display: flex;
         flex-direction: column;
-        width: 330px;
+        width: 400px;
+        margin: 0 auto;
     }
     .cart_style{
-        width: 360px;
+        width: 400px;
     }
     .cart_style img{
-        width: 150px;
+        width: 180px;
         height: 160px;
     }
     .cart_style .product_description{

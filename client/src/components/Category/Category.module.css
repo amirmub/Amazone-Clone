@@ -9,9 +9,22 @@
 @media (max-width : 768px) {
     .category{
         display: grid;
-        grid-template-columns: repeat(2,1fr);
-        top: 30%;
-        margin: 5px;
+        grid-template-columns: repeat(1,1fr);
+        left: 5%;
+        top: 43%;
+        bottom: 40%;
+        margin-bottom: 500px;
+        gap: 15px;
+    }
+}
+@media (max-width : 420px) {
+    .category{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        left: -4%;
+        top: 43%;
+        bottom: 40%;
+        margin-bottom: 500px;
         gap: 15px;
     }
 }

@@ -52,7 +52,7 @@ function Order() {
           {
             orders?.map((eachOrder,i)=>{
               return(
-              <div key={i}  className={classes.order_item}>
+              <div key={i}  className={classes.order_items}>
             <hr style={{color:"#bfac40", border : "1.3px solid"}} />
            <p className={classes.id}>Order ID : {eachOrder?.id}</p>
                   {

@@ -5,13 +5,15 @@ import { CategoryData } from './CatagoryData'
 
 function Category() {
   return (
-    <div className={classes.category}>
+    <div className={classes.category_container}>
+      <div className={classes.category}>
       {
         CategoryData.map((infos,index) => 
           <CategoryCard data = {infos}  key={index}/>
           
         )
       }
+    </div>
     </div>
   )
 }
