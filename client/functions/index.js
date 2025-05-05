@@ -4,11 +4,14 @@ const logger = require("firebase-functions/logger");
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const { setGlobalOptions } = require("firebase-functions");
 
 dotenv.config();//uses for READ inside .env file
 const stripe = require("stripe") (process.env.STRIPE_SECRET_KEY);
 
 const app = express()
+
+setGlobalOptions({maxInstances : 10})
 app.use(cors({origin : true})) //uses for accept from any request
 
 app.use(express.json())

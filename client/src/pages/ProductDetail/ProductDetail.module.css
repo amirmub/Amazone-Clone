@@ -9,7 +9,7 @@
 }
 @media (max-width : 768px) {
     .product_detail_container{
-        height: 90vh;
+        height: 95vh;
     }
     .product_detail_container .product_detail{
         margin-left: 0px;
