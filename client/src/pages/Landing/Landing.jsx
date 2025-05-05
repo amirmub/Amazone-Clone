@@ -1,5 +1,5 @@
 import React from 'react'
-import Carousal from '../../components/Carousal/Carousal'
+import Carousal from '../../components/carousal/Carousal'
 import Category from '../../components/Category/Category'
 import Product from '../../components/Product/Product'
 import LayOut from '../../components/LayOut/LayOut'
