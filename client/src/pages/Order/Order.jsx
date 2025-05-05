@@ -56,7 +56,7 @@ function Order() {
 
           {latestOrder && (
             <div className={classes.order_items}>
-              <hr style={{ color: "#bfac40", border: "1.5px solid",width:"90%" }} />
+              <hr className={classes.order_item_hr} />
               <p className={classes.id}>Order ID: {latestOrder.id}</p>
 
               {latestOrder?.data?.basket?.map((product) => (

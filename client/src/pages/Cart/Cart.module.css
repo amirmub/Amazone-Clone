@@ -66,6 +66,7 @@
     cursor: pointer;
 }
 @media (max-width : 768px) {
+
     .cart_container{
         display: flex;
         flex-direction: column-reverse;
@@ -77,5 +78,13 @@
         padding: 15px ;
         width: 350px;
         margin: 20px auto;
+    }
+    .cart_item_section{
+        position: relative;
+    }
+    .cart_item_details{
+        position: absolute;
+        bottom: 40px;
+        right: 10px;
     }
 }

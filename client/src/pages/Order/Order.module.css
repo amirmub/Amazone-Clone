@@ -27,8 +27,19 @@
     text-align: center;
     padding-bottom: 50px;
 }
+.order_item_hr{
+    color: #bfac40;
+    border: 1.5px solid;
+    width: 90%;
+}
 @media (max-width : 768px) {
     .order_items{
-        padding: 10px 0px 10px 40px;
+        padding: 10px 0px 10px 0px;
+    }
+    .order_item_hr{
+        width: 100%;
+    }
+    .order_container{
+        margin: 30px auto;
     }
 }
