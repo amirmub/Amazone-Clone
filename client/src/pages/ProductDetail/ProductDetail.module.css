@@ -11,4 +11,10 @@
     .product_detail_container{
         height: 140vh;
     }
+    .product_detail_container .product_detail{
+        margin-left: 0px;
+    }
+    .product_detail_container .product_detail img{
+        width: 300px;
+    }
 }

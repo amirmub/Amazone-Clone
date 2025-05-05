@@ -5,6 +5,9 @@
     row-gap: 60px;
     margin: 0px auto 70px auto;
 }
+.loader{
+    width: -710px;
+}
 @media (max-width : 540px) {
     .products{
         grid-template-columns: repeat(1,1fr);

@@ -4,21 +4,20 @@ import { db } from '../../Utility/firebase';
 import { DataContext } from '../../components/DataProvider/DataProvider';
 import {
   collection,
-  doc,
   query,
   orderBy,
   onSnapshot,
 } from 'firebase/firestore';
 import ProductCard from '../../components/Product/ProductCard';
-import classes from "./Order.module.css"
+import classes from "./Order.module.css";
 
 function Order() {
-  const [{ user }, dispatch] = useContext(DataContext);
-  const [orders, setOrders] = useState([]);
+  const [{ user }] = useContext(DataContext);
+  const [latestOrder, setLatestOrder] = useState(null);
 
   useEffect(() => {
     if (!user) {
-      setOrders([]);
+      setLatestOrder(null);
       return;
     }
 
@@ -26,12 +25,16 @@ function Order() {
     const q = query(ordersRef, orderBy("created", "desc"));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      setOrders(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      );
+      const allOrders = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        data: doc.data(),
+      }));
+
+      if (allOrders.length > 0) {
+        setLatestOrder(allOrders[0]); //  Only take the most recent order
+      } else {
+        setLatestOrder(null);
+      }
     });
 
     return () => unsubscribe();
@@ -42,34 +45,29 @@ function Order() {
       <div className={classes.order_container}>
         <h2>Your Orders</h2>
         <div className={classes.order_item}>
-          {
-            orders?.length === 0 && 
-           <div>
-             <hr style={{color:"#bfac40", border : "1.3px solid",margin:"15px"}} />
-             <h3 className={classes.empty_order}>Oops! You Don't Have Order Yet</h3>
-           </div>
-          }
-          {
-            orders?.map((eachOrder,i)=>{
-              return(
-              <div key={i}  className={classes.order_items}>
-            <hr style={{color:"#bfac40", border : "1.3px solid"}} />
-           <p className={classes.id}>Order ID : {eachOrder?.id}</p>
-                  {
-                    eachOrder?.data?.basket?.map((order)=>{
-                      return(
-                        <ProductCard
-                         flex ={true}
-                         data ={order}
-                         key={order.id}
-                        />
-                      )
-                    })
-                  }
-                </div>
-              )
-            })
-          }
+          {!latestOrder && (
+            <div>
+              <hr style={{ color: "#bfac40", border: "1.3px solid", margin: "15px" }} />
+              <h3 className={classes.empty_order}>
+                Oops! You Haven't Purchased Anything Yet
+              </h3>
+            </div>
+          )}
+
+          {latestOrder && (
+            <div className={classes.order_items}>
+              <hr style={{ color: "#bfac40", border: "1.5px solid",width:"90%" }} />
+              <p className={classes.id}>Order ID: {latestOrder.id}</p>
+
+              {latestOrder?.data?.basket?.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  data={product}
+                  flex={true}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </LayOut>
