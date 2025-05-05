@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import LayOut from '../../components/LayOut/LayOut'
 import { DataContext } from '../../components/DataProvider/DataProvider'
 import ProductCard from '../../components/Product/ProductCard'
-import classes from "./payment.module.css"
+import classes from "./Payment.module.css"
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { axiosInstance } from '../../Api/axios'
 import { db } from '../../Utility/firebase'
