@@ -1,0 +1,25 @@
+.order_container{
+    background-color: #fff;
+    max-width: 960px;    
+    margin: 20px auto;
+    padding: 10px 70px;
+}
+.order_container h2{
+    text-align: center;
+    padding-top: 10px;
+}
+.order_container .id{
+    padding: 20px;
+    font-weight: 600;
+}
+.order_container img{
+    width: 150px;
+    height: 150px;
+}
+.order_item{
+    margin-top: 20px;
+}
+.empty_order{
+    text-align: center;
+    padding-bottom: 50px;
+}

@@ -23,7 +23,7 @@ function Routing() {
          <Route path="/" element={<Landing />} />
          <Route path="/auth" element={<Auth />} />
          <Route path="/order" element={
-            <ProtectedRoute msg={"You must login to see your Order"} redirect={"/payments"}>
+            <ProtectedRoute msg={"You must login to see your Order"} redirect={"/order"}>
               <Order />
             </ProtectedRoute>
           } />
