@@ -8,6 +8,7 @@ import { axiosInstance } from '../../Api/axios'
 import { db } from '../../Utility/firebase'
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom'
+import { ActionTypes } from '../../Utility/action.type'
 
 
 function Payment() {
@@ -62,6 +63,9 @@ function Payment() {
         
           navigate("/order",{state : {msg : "you have placed new order"}})
 
+          dispatch({
+            type : ActionTypes.EMPTY_BASKET
+          })
      } catch (error) {
        setError(error);
        setProcessing(false)
