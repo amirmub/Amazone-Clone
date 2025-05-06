@@ -25,7 +25,7 @@ function Payment() {
   const navigate = useNavigate();
 
    const handleChange = (e)=>{
-     setCarError(e.error.message)
+     setError(e.error.message)
     }
     
     const handlePayment = async (e)=>{
@@ -35,7 +35,7 @@ function Payment() {
         // 1. backend || function ---> contact to client secret
         const response = await axiosInstance({
           method : "POST",
-          url : `/payment/create?total=${total}`
+          url: `/payment/create?total=${Math.round(total * 100)}` // Send total in cents
         })
         
         console.log(response.data);
