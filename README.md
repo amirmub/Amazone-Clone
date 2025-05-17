@@ -1,5 +1,5 @@
 
-# 🛒 Amazoone Clone
+# 🛒 Amazone Clone
 
 A fully responsive, Amazon-inspired e-commerce frontend application built with **React**. This project replicates the core design and layout of Amazon's homepage, offering a clean UI, product cards, responsive layout, and intuitive navigation.
 
