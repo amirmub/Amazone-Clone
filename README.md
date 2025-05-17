@@ -9,7 +9,7 @@ A fully responsive, Amazon-inspired e-commerce frontend application built with *
 
 ## 📸 Preview
 
-![alt text](<Screenshot 2025-05-16 114254.png>)
+![Preview](./client/public/screenshots/preview.png)
 
 ---
 
