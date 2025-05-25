@@ -3,8 +3,6 @@
 
 A fully responsive, Amazon-inspired e-commerce frontend application built with **React**. This project replicates the core design and layout of Amazon's homepage, offering a clean UI, product cards, responsive layout, and intuitive navigation.
 
-🌐 **Live Demo**: [amazone-clone.netlify.app](https://amazone-clone.netlify.app)
-
 ---
 
 ## 📸 Preview
