@@ -1,0 +1,17 @@
+# Exclude build and dependency folders
+node_modules/** linguist-vendored
+dist/** linguist-vendored
+.next/** linguist-vendored
+build/** linguist-vendored
+out/** linguist-vendored
+
+# Exclude config and lock files
+*.lock linguist-generated
+*.config.js linguist-generated
+*.config.ts linguist-generated
+*.json linguist-generated
+*.env linguist-generated
+
+# Ignore images/assets
+public/** linguist-vendored
+assets/** linguist-vendored
